@@ -223,9 +223,9 @@ export class NgxMatIntlTelInputComponent
   }
 
   ngDoCheck(): void {
-    if (this.ngControl) {
+    /*if (this.ngControl) {
       this.updateErrorState();
-    }
+    }*/
   }
 
   public onPhoneNumberChange(): void {
@@ -236,7 +236,7 @@ export class NgxMatIntlTelInputComponent
       );
       this.formatAsYouTypeIfEnabled();
       this.value = this.numberInstance?.number;
-      if (this.numberInstance && this.numberInstance.isValid()) {
+      /*if (this.numberInstance && this.numberInstance.isValid()) {
         if (this.phoneNumber !== this.formattedPhoneNumber) {
           this.phoneNumber = this.formattedPhoneNumber;
         }
@@ -247,7 +247,8 @@ export class NgxMatIntlTelInputComponent
           this.selectedCountry = this.getCountry(this.numberInstance.country);
           this.countryChanged.emit(this.selectedCountry);
         }
-      }
+        
+      }*/
     } catch (e) {
       // if no possible numbers are there,
       // then the full number is passed so that validator could be triggered and proper error could be shown
@@ -422,17 +423,17 @@ export class NgxMatIntlTelInputComponent
   }
 
   private get formattedPhoneNumber(): string {
-    if (!this.numberInstance) {
+    //if (!this.numberInstance) {
       return this.phoneNumber?.toString() || '';
-    }
-    switch (this.format) {
+    //}
+    /*switch (this.format) {
       case 'national':
         return this.numberInstance.formatNational();
       case 'international':
         return this.numberInstance.formatInternational();
       default:
         return this.numberInstance.nationalNumber.toString();
-    }
+    }*/
   }
 
   private formatAsYouTypeIfEnabled(): void {
